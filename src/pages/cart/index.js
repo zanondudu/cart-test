@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useMemo, useState, useEffect, useRef } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { freeShippingState } from '../../store/selectors/shipping'
@@ -16,6 +16,11 @@ const Cart = () => {
   const freeShipping = useSelector(freeShippingState)
   const [freeShippingOffer, setFreeShippingOffer] = useState(false)
   const dispatch = useDispatch()
+  const bottomRef = useRef()
+  
+  const paddingBottom = useMemo(() => {
+    return bottomRef.current?.clientHeight || 10;
+  }, [bottomRef])
   
   useEffect(() => {
     setTimeout(() => {
@@ -34,9 +39,8 @@ const Cart = () => {
       <Header>
         Meu carrinho
       </Header>
-      
-      <ProductsList /> 
-      <Footer />
+      <ProductsList paddinBottomStyle={{ paddingBottom }} /> 
+      <Footer ref={bottomRef} />
       {
         enableFreeShippingOffer && (
           <FloatingMessage handleClick={() => dispatch(Actions.enableFreeShipping())} message="Adicione mais 4 trufas e garanta seu frete grátis :)"/>

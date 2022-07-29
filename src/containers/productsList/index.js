@@ -10,7 +10,7 @@ import ProductCard from '../../components/productCard'
 
 import { Container } from './styles'
 
-const ProductsList = () => {
+const ProductsList = ({paddinBottomStyle}) => {
   const [productsData, setProductsData] = useState([])
   const freeShipping = useSelector(freeShippingState)
   const dispatch = useDispatch()
@@ -37,7 +37,7 @@ const ProductsList = () => {
   }, [freeShipping, getProductsData])
   
   return (
-    <Container>
+    <Container style={paddinBottomStyle}>
       {
         productsData.map(item => (
           <ProductCard

@@ -15,20 +15,19 @@ import {
   FreeShippingTag
 } from './styles'
 
-const Footer = () => {
+const Footer = React.forwardRef((props, ref) => {
   const { totalAmount } = useSelector(totalAmountState)
-  
   const freeShipping = useMemo(() => totalAmount > 1000, [totalAmount])
-  
-  return (
-    <Container>
+
+   return (
+    <Container ref={ref}>
       <AmountContainer>
         <TextWrapper>
           <span>
             Total:
           </span>
           <span>
-            {currencyFormat(totalAmount) }
+            {currencyFormat(totalAmount)}
           </span>
         </TextWrapper>
         {
@@ -45,7 +44,6 @@ const Footer = () => {
         <Button handleClick={() => alert(':)')} title="Finalizar compra" />
       </ButtonContainer>
     </Container>
-  )
-}
+)});
 
 export default Footer
