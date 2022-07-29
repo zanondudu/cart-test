@@ -42,7 +42,7 @@ const Footer = () => {
         }
       </AmountContainer>
       <ButtonContainer>
-        <Button handleClick={() => alert('dale')} title="Finalizar compra" />
+        <Button handleClick={() => alert(':)')} title="Finalizar compra" />
       </ButtonContainer>
     </Container>
   )

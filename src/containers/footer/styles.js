@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  @media (max-width: 599px) { 
+    position: fixed;
+    bottom: 0;
+  }
 `;
 
 export const TextWrapper = styled.div`
