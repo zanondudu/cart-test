@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   @media (max-width: 599px) { 
+    width: 100%;
     position: fixed;
     bottom: 0;
   }
