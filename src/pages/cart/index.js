@@ -39,7 +39,7 @@ const Cart = () => {
       <Header>
         Meu carrinho
       </Header>
-      <ProductsList paddinBottomStyle={{ paddingBottom }} /> 
+      <ProductsList paddinBottomStyle={paddingBottom} /> 
       <Footer ref={bottomRef} />
       {
         enableFreeShippingOffer && (
