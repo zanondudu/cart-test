@@ -5,6 +5,11 @@ export const Container = styled.div`
   padding: 0 2vw;
   flex: 1;
   
+  @media(max-width: 599px) {
+    padding-top: ${({paddingTop}) => `${paddingTop}px`};
+    padding-bottom: ${({ paddingBottom }) => `${paddingBottom}px`} 
+  }
+  
 ::-webkit-scrollbar {
   width: 5px;
 }

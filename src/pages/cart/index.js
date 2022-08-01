@@ -17,13 +17,16 @@ const Cart = () => {
   const [freeShippingOffer, setFreeShippingOffer] = useState(false)
   const dispatch = useDispatch()
   const bottomRef = useRef()
+  const topRef = useRef()
   const [paddingBottom, setPaddingBottom] = useState(209);
+  const [paddingTop, setPaddingTop] = useState(70);
 
   useEffect(() => {
     setTimeout(() => {
       setPaddingBottom(bottomRef.current?.clientHeight)
+      setPaddingTop(topRef.current?.clientHeight)
     }, 500);
-  }, [freeShipping, bottomRef])
+  }, [freeShipping, bottomRef, topRef])
   
   useEffect(() => {
     setTimeout(() => {
@@ -39,10 +42,13 @@ const Cart = () => {
   
   return (
     <Container>
-      <Header>
+      <Header ref={topRef}>
         Meu carrinho
       </Header>
-      <ProductsList paddinBottomStyle={paddingBottom} /> 
+      <ProductsList 
+        paddinBottomStyle={paddingBottom}
+        paddingTopStyle={paddingTop}
+      /> 
       <Footer ref={bottomRef} />
       {
         enableFreeShippingOffer && (

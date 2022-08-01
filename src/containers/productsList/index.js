@@ -10,7 +10,7 @@ import ProductCard from '../../components/productCard'
 
 import { Container } from './styles'
 
-const ProductsList = ({paddinBottomStyle}) => {
+const ProductsList = ({paddinBottomStyle, paddingTopStyle}) => {
   const [productsData, setProductsData] = useState([])
   const freeShipping = useSelector(freeShippingState)
   const dispatch = useDispatch()
@@ -37,7 +37,10 @@ const ProductsList = ({paddinBottomStyle}) => {
   }, [freeShipping, getProductsData])
   
   return (
-    <Container style={{ paddingBottom: `${paddinBottomStyle}px`}}>
+    <Container
+      paddingBottom={paddinBottomStyle}
+      paddingTop={paddingTopStyle}
+    >
       {
         productsData.map(item => (
           <ProductCard
