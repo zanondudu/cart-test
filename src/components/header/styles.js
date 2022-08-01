@@ -7,4 +7,12 @@ export const Container = styled.div`
   font-weight: bolder;
   font-size: 17px; 
   border-bottom: 1px solid #c4c4c4;
+  
+  @media(max-width: 599px) {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    /* z-index: 1; */
+  }
 `;

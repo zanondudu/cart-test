@@ -23,7 +23,7 @@ const Cart = () => {
     setTimeout(() => {
       setPaddingBottom(bottomRef.current?.clientHeight)
     }, 500);
-  }, [freeShipping])
+  }, [freeShipping, bottomRef])
   
   useEffect(() => {
     setTimeout(() => {
