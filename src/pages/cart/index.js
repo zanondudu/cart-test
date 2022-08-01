@@ -17,17 +17,20 @@ const Cart = () => {
   const [freeShippingOffer, setFreeShippingOffer] = useState(false)
   const dispatch = useDispatch()
   const bottomRef = useRef()
-  
-  const paddingBottom = useMemo(() => {
-    return bottomRef.current?.clientHeight || 10;
-  }, [bottomRef])
+  const [paddingBottom, setPaddingBottom] = useState(209);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPaddingBottom(bottomRef.current?.clientHeight)
+    }, 500);
+  }, [freeShipping])
   
   useEffect(() => {
     setTimeout(() => {
       setFreeShippingOffer(true)
     }, 2000)  
   }, [])
-  
+    
   const enableFreeShippingOffer = useMemo(() => 
   {
     return freeShippingOffer && !freeShipping

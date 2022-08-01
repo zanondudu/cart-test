@@ -20,10 +20,6 @@ const ProductsList = ({paddinBottomStyle}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
-  console.log('====================================');
-  console.log(paddinBottomStyle);
-  console.log('====================================');
-  
   const getProductsData = useCallback(async (endPoint) => {
     dispatch(Actions.enableLoader('Adicionando itens ao carrinho'))
     const { data } = await api.get(endPoint)
